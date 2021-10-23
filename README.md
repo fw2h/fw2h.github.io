@@ -1,1 +1,0 @@
-# vadasz_page

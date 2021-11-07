@@ -33,11 +33,10 @@ cordZ.addEventListener("input", () => {
     cordZvalue = isNaN(cordZ.value) ? 0 : Number(cordZ.value);
 });
 
-// if (!localStorage.popUp) {
-//     console.log("popup");
-//     popUp();
-//     localStorage.popUp = "pop";
-// }
+if (!localStorage.popUp) {
+    popUp();
+    localStorage.popUp = "pop";
+}
 
 modalClose.addEventListener("click", popDown);
 
@@ -200,7 +199,10 @@ function init() {
     generateObjects();
 
     window.addEventListener('resize', resizeCanvasToDisplaySize);
-    regenerateButton.addEventListener("click", generateObjects);
+    regenerateButton.addEventListener("click", () => {
+        removeObjects();
+        generateObjects();
+    });
     window.addEventListener('mousedown', selectObject, false);
 
 
@@ -211,6 +213,7 @@ function init() {
 }
 
 function generateNewScene() {
+    // console.log("gen new screen");
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x7ba0c0);
 
@@ -305,7 +308,7 @@ function selectOnly() {
 
 function generateFloor() {
     // floor
-    console.log("flori");
+    // console.log("flori");
 
     let floorGeometry = new THREE.PlaneGeometry(2000, 2000, 1, 1);
     floorGeometry.rotateX(-Math.PI / 2);
@@ -346,7 +349,7 @@ function generateFloor() {
     const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x357a38 });
 
     const floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    console.log(scene);
+    // console.log(scene);
     scene.add(floor);
 }
 
@@ -375,7 +378,7 @@ function removeObjects() { // or new scene
     //     scene.remove(o);
     // }
     // console.log('2');
-
+    // console.log("rim rum");
     generateNewScene();
 
     objects = [];
@@ -387,8 +390,8 @@ function removeObjects() { // or new scene
 }
 
 function generateObjects() {
-    removeObjects();
-    console.log("removed");
+    // removeObjects();
+    // console.log("removed");
     let num = Number(diameterInput.value);
     if (!num || num < 7 || num > 200) {
         num = 10;
@@ -396,7 +399,7 @@ function generateObjects() {
     }
 
     cords = getCords(num);
-    console.log("corded");
+    // console.log("corded");
     for (const cord of cords) {
 
         const box = new THREE.Mesh(boxGeometry, normalBoxMaterial);

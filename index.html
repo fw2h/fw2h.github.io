@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+
+<body>
+    <div class="modal-wrapper" data-modal="wrapper">
+        <div class="modal-content">
+            <button data-modal="close">&times;</button>
+            <p>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                suscipit laboion 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+                est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
+                corporis suscipit laboriosam, nisi ion 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+                exercitationem ullam corporis suscipit labout aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
+                pariatur?"
+            </p>
+        </div>
+    </div>
+
+    <div class="frame">
+
+
+        <div id="editor">
+            <!-- ------------EDITOR------------------- -->
+
+            <!-- <p>no window resize</p>
+
+            <div id="ui">
+                <button type="button" data-size="25%">small</button>
+                <button type="button" data-size="50%">medium</button>
+                <button type="button" data-size="75%">large</button>
+            </div> -->
+            <div id="block">
+                <h4>Gömb(alap kordináták + átmérő):</h4>
+                <div>
+                    <label for="x">x</label>
+                    <input id="absolute_x" type="number" value="0">
+                </div>
+                <div>
+                    <label for="y">y</label>
+                    <input id="absolute_y" type="number" value="0">
+                </div>
+                <div>
+                    <label for="z">z</label>
+                    <input id="absolute_z" type="number" value="0">
+                </div>
+                <div>
+                    <label for="r">d</label>
+                    <input id="sphere-diameter" type="number" min="3" max="200" value="9">
+                </div>
+                <div>
+                    <button id="regenerate-button">Generate</button>
+                </div>
+
+            </div>
+            <div id="block">
+                <h4>Cords of target block:</h4>
+                <div>
+                    <p for="x">Relative X/Y/Z:</p>
+                    <p id="rel_targetXYZ">0/0/0</p>
+                    <p for="x">Absolute X/Y/Z:</p>
+                    <p id="abs_targetXYZ">0/0/0</p>
+                </div>
+
+            </div>
+            <div id="block">
+                <h4>Cords of selected block:</h4>
+                <div>
+                    <p for="x">Relative X/Y/Z:</p>
+                    <p id="rel_selectedXYZ">0/0/0</p>
+                    <p for="x">Absolute X/Y/Z:</p>
+                    <p id="abs_selectedXYZ">0/0/0</p>
+                </div>
+            </div>
+            <div id="block">
+                <h4>Show only:</h4>
+                <div>
+                    <label for="x">X</label>
+                    <input type="checkbox" name="x" id="checkX">
+                    <label for="y">Y</label>
+                    <input type="checkbox" name="y" id="checkY">
+                    <label for="z">Z</label>
+                    <input type="checkbox" name="z" id="checkZ">
+                </div>
+
+            </div>
+            <div id="block">
+                <label for="s">Speed:</label>
+                <input type="range" name="s" id="speedInput" min="1" max="10" value="1">
+            </div>
+        </div>
+
+        <div id="game">
+            <!-- ------------GAME------------------- -->
+            <canvas></canvas>
+
+            <div id="blocker">
+                <div id="instructions">
+                    <p>
+                        Click to play
+                    </p>
+                </div>
+            </div>
+
+            <div id="pointer">
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script type="text/javascript" src="js/three.js"></script>
+    <script type="text/javascript" src="js/PointerLockControls.js"></script>
+    <script type="text/javascript" src="js/stats.js"></script>
+    <script type="text/javascript" src="js/sphereMatrix.js"></script>
+    <script type="text/javascript" src="js/modalzinha.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
+
+
+</html>

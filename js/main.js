@@ -393,7 +393,7 @@ function generateObjects() {
     // removeObjects();
     // console.log("removed");
     let num = Number(diameterInput.value);
-    if (!num || num < 7 || num > 200) {
+    if (!num || num < 7 || num > 201) {
         num = 10;
         diameterInput.value = 10;
     }
